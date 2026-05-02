@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoTracker — Geospatial Location Tracking System</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #0a0f1e;
+      --card:   #111827;
+      --border: #1e293b;
+      --accent: #00e5ff;
+      --accent2:#7c3aed;
+      --text:   #e2e8f0;
+      --muted:  #64748b;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      gap: 32px;
+    }
+
+    .hero { text-align: center; }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      padding: 4px 16px;
+      border-radius: 50px;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 7vw, 56px);
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-top: 12px;
+      font-size: 13px;
+      max-width: 400px;
+      line-height: 1.8;
+    }
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    .card {
+      flex: 1;
+      min-width: 260px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+    .card-icon { font-size: 32px; }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .card-desc {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .card-btn {
+      display: block;
+      text-align: center;
+      padding: 12px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .btn-map {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+    }
+
+    .btn-map:hover { filter: brightness(1.15); }
+
+    .btn-sender {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-sender:hover { background: rgba(0,229,255,0.1); }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      max-width: 600px;
+    }
+
+    .tag {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 1px;
+    }
+
+    .footer {
+      font-size: 10px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.9;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="badge">MINI PROJECT — MIET JAMMU 2026</div>
+    <h1>GeoTracker</h1>
+    <p class="subtitle">
+      Geospatial Location Tracking System<br>
+      with Live Map Visualization<br>
+      Real-time · Multi-device · Open Source
+    </p>
+  </div>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-icon">🗺️</div>
+      <div class="card-title">Live Map Viewer</div>
+      <div class="card-desc">
+        Open on your <strong>laptop/desktop</strong>.<br>
+        Watch all tracked devices move in real time on an interactive map with colored markers and movement trails.
+      </div>
+      <a href="/map.html" class="card-btn btn-map">▶ Open Map</a>
+    </div>
+    <div class="card">
+      <div class="card-icon">📱</div>
+      <div class="card-title">GPS Sender</div>
+      <div class="card-desc">
+        Open on your <strong>mobile phone</strong> (same Wi-Fi).<br>
+        Enter a device name, tap Start, and your live GPS coordinates are sent to the map instantly.
+      </div>
+      <a href="/sender.html" class="card-btn btn-sender">▶ Open Sender</a>
+    </div>
+  </div>
+
+  <div class="stack">
+    <span class="tag">Node.js</span>
+    <span class="tag">Express.js</span>
+    <span class="tag">Socket.io</span>
+    <span class="tag">MongoDB</span>
+    <span class="tag">Mongoose</span>
+    <span class="tag">Leaflet.js</span>
+    <span class="tag">OpenStreetMap</span>
+    <span class="tag">Geolocation API</span>
+  </div>
+
+  <div class="footer">
+    Team Techie Genes · Dheeraj Sharma &amp; Suvan Mahajan<br>
+    Dept. of CSE · Model Institute of Engineering and Technology · Jammu
+  </div>
+
+</div>
+</body>
+</html>
