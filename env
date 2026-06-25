@@ -1,9 +1,0 @@
-# MongoDB Connection String
-# Option 1: Local MongoDB (default)
-MONGO_URI=mongodb://localhost:27017/geospatial_tracker
-
-# Option 2: MongoDB Atlas (cloud - replace with your own URI)
-# MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/geospatial_tracker
-
-# Server Port
-PORT=3000
